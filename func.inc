@@ -1,26 +1,26 @@
 //================================================================
-//  Здесь описываются функции, по которым рисуются картины
-//  При добавлении новой функции не забудьте изменить Pictures*
+//  Р—РґРµСЃСЊ РѕРїРёСЃС‹РІР°СЋС‚СЃСЏ С„СѓРЅРєС†РёРё, РїРѕ РєРѕС‚РѕСЂС‹Рј СЂРёСЃСѓСЋС‚СЃСЏ РєР°СЂС‚РёРЅС‹
+//  РџСЂРё РґРѕР±Р°РІР»РµРЅРёРё РЅРѕРІРѕР№ С„СѓРЅРєС†РёРё РЅРµ Р·Р°Р±СѓРґСЊС‚Рµ РёР·РјРµРЅРёС‚СЊ Pictures*
 //----------------------------------------------------------------
-//    Способ такой:
-// 1. Регистрация процедуры: задается тип симметрии и способ обработки
-//    выходов за пределы промежутка цвета
-// 2. Описание процедыры: по декартовым и полярным координатам
-//    возвращаются процентные значения красного, зеденого и синего
+//    РЎРїРѕСЃРѕР± С‚Р°РєРѕР№:
+// 1. Р РµРіРёСЃС‚СЂР°С†РёСЏ РїСЂРѕС†РµРґСѓСЂС‹: Р·Р°РґР°РµС‚СЃСЏ С‚РёРї СЃРёРјРјРµС‚СЂРёРё Рё СЃРїРѕСЃРѕР± РѕР±СЂР°Р±РѕС‚РєРё
+//    РІС‹С…РѕРґРѕРІ Р·Р° РїСЂРµРґРµР»С‹ РїСЂРѕРјРµР¶СѓС‚РєР° С†РІРµС‚Р°
+// 2. РћРїРёСЃР°РЅРёРµ РїСЂРѕС†РµРґС‹СЂС‹: РїРѕ РґРµРєР°СЂС‚РѕРІС‹Рј Рё РїРѕР»СЏСЂРЅС‹Рј РєРѕРѕСЂРґРёРЅР°С‚Р°Рј
+//    РІРѕР·РІСЂР°С‰Р°СЋС‚СЃСЏ РїСЂРѕС†РµРЅС‚РЅС‹Рµ Р·РЅР°С‡РµРЅРёСЏ РєСЂР°СЃРЅРѕРіРѕ, Р·РµРґРµРЅРѕРіРѕ Рё СЃРёРЅРµРіРѕ
 //----------------------------------------------------------------
-//    Типы симметрии:
-// - Относительно центра (symZero)
-// - Относительно Ox (symHorizontal)
-// - Относительно Oy (symVertical)
-// + Никакой симметрии (symNone)
+//    РўРёРїС‹ СЃРёРјРјРµС‚СЂРёРё:
+// - РћС‚РЅРѕСЃРёС‚РµР»СЊРЅРѕ С†РµРЅС‚СЂР° (symZero)
+// - РћС‚РЅРѕСЃРёС‚РµР»СЊРЅРѕ Ox (symHorizontal)
+// - РћС‚РЅРѕСЃРёС‚РµР»СЊРЅРѕ Oy (symVertical)
+// + РќРёРєР°РєРѕР№ СЃРёРјРјРµС‚СЂРёРё (symNone)
 //----------------------------------------------------------------
-//    Обработка выходов за края [0..1]:
-// + Брать дробные части (baFractal)
-// - Обрезать к 0 или 1 - к ближнему (baCut)
+//    РћР±СЂР°Р±РѕС‚РєР° РІС‹С…РѕРґРѕРІ Р·Р° РєСЂР°СЏ [0..1]:
+// + Р‘СЂР°С‚СЊ РґСЂРѕР±РЅС‹Рµ С‡Р°СЃС‚Рё (baFractal)
+// - РћР±СЂРµР·Р°С‚СЊ Рє 0 РёР»Рё 1 - Рє Р±Р»РёР¶РЅРµРјСѓ (baCut)
 //================================================================
 const D=M;
 
-const f1c='Красно-синие обхватывающие друг друга полосы с элементами эротики';
+const f1c='РљСЂР°СЃРЅРѕ-СЃРёРЅРёРµ РѕР±С…РІР°С‚С‹РІР°СЋС‰РёРµ РґСЂСѓРі РґСЂСѓРіР° РїРѕР»РѕСЃС‹ СЃ СЌР»РµРјРµРЅС‚Р°РјРё СЌСЂРѕС‚РёРєРё';
       f1s=symZero; f1b=baCut;
 procedure f1p(x,y,a,d:extended;var r,g,b:extended);
 begin
@@ -33,7 +33,7 @@ begin
  g:=(r+b)/2;
 end;
 
-const f2c='Муть. Просто, к тому же бесплатно :-)';
+const f2c='РњСѓС‚СЊ. РџСЂРѕСЃС‚Рѕ, Рє С‚РѕРјСѓ Р¶Рµ Р±РµСЃРїР»Р°С‚РЅРѕ :-)';
       f2s=symZero; f2b=baCut;
 procedure f2p(x,y,a,d:extended;var r,g,b:extended);
 begin
@@ -42,7 +42,7 @@ begin
  b:=random*abs(sin(d*4*pi+2*pi/3));
 end;
 
-const f3c='Блики в центре и красно-синие окресности. Похоже на рождающуюся Вселенную';
+const f3c='Р‘Р»РёРєРё РІ С†РµРЅС‚СЂРµ Рё РєСЂР°СЃРЅРѕ-СЃРёРЅРёРµ РѕРєСЂРµСЃРЅРѕСЃС‚Рё. РџРѕС…РѕР¶Рµ РЅР° СЂРѕР¶РґР°СЋС‰СѓСЋСЃСЏ Р’СЃРµР»РµРЅРЅСѓСЋ';
       f3s=symZero; f3b=baCut;
 procedure f3p(x,y,a,d:extended;var r,g,b:extended);
 begin
@@ -51,7 +51,7 @@ begin
  b:=pow(y/3,d);
 end;
 
-const f4c='Синусоидоподобные линии. Ерунда многоцветная';
+const f4c='РЎРёРЅСѓСЃРѕРёРґРѕРїРѕРґРѕР±РЅС‹Рµ Р»РёРЅРёРё. Р•СЂСѓРЅРґР° РјРЅРѕРіРѕС†РІРµС‚РЅР°СЏ';
       f4s=symZero; f4b=baCut;
 procedure f4p(x,y,a,d:extended;var r,g,b:extended);
 begin
@@ -60,17 +60,17 @@ begin
  r:=((1-b)+(1-g))/2;
 end;
 
-const f5c='Синяя четырехугольная звезда на красно-зеленых сочетаниях';
+const f5c='РЎРёРЅСЏСЏ С‡РµС‚С‹СЂРµС…СѓРіРѕР»СЊРЅР°СЏ Р·РІРµР·РґР° РЅР° РєСЂР°СЃРЅРѕ-Р·РµР»РµРЅС‹С… СЃРѕС‡РµС‚Р°РЅРёСЏС…';
       f5s=symZero; f5b=baCut;
 procedure f5p(x,y,a,d:extended;var r,g,b:extended);
-const K=0.005;                    {Размер звезды пропорционален K}
+const K=0.005;                    {Р Р°Р·РјРµСЂ Р·РІРµР·РґС‹ РїСЂРѕРїРѕСЂС†РёРѕРЅР°Р»РµРЅ K}
 begin
  r:=x*d;
  g:=y*d;
  b:=K/r/g;
 end;
 
-const f6c='Четырехлепестковый синий цветок';
+const f6c='Р§РµС‚С‹СЂРµС…Р»РµРїРµСЃС‚РєРѕРІС‹Р№ СЃРёРЅРёР№ С†РІРµС‚РѕРє';
       f6s=symZero; f6b=baCut;
 procedure f6p(x,y,a,d:extended;var r,g,b:extended);
 begin
@@ -79,7 +79,7 @@ begin
  b:=((1-r)+(1-g))/2;
 end;
 
-const f7c='Так себе';
+const f7c='РўР°Рє СЃРµР±Рµ';
       f7s=symZero; f7b=baCut;
 procedure f7p(x,y,a,d:extended;var r,g,b:extended);
 begin
@@ -88,7 +88,7 @@ begin
  b:=((1-r)+(1-g))/2;
 end;
 
-const f8c='Windows 99. Ромбовидное окно';
+const f8c='Windows 99. Р РѕРјР±РѕРІРёРґРЅРѕРµ РѕРєРЅРѕ';
       f8s=symZero; f8b=baCut;
 procedure f8p(x,y,a,d:extended;var r,g,b:extended);
 begin
@@ -97,7 +97,7 @@ begin
  b:=ln(abs(1-r-g)+M)/d;
 end;
 
-const f9c='Желтые блики';
+const f9c='Р–РµР»С‚С‹Рµ Р±Р»РёРєРё';
       f9s=symZero; f9b=baCut;
 procedure f9p(x,y,a,d:extended;var r,g,b:extended);
 begin
@@ -106,7 +106,7 @@ begin
  b:=sin(d*pi*4);
 end;
 
-const f10c='Волшебный цветочек. Может аленький';
+const f10c='Р’РѕР»С€РµР±РЅС‹Р№ С†РІРµС‚РѕС‡РµРє. РњРѕР¶РµС‚ Р°Р»РµРЅСЊРєРёР№';
       f10s=symZero; f10b=baCut;
 procedure f10p(x,y,a,d:extended;var r,g,b:extended);
 begin
@@ -115,7 +115,7 @@ begin
  b:=sin(d*pi*4)/cos(d*pi*4);
 end;
 
-const f11c='Цветовые кресты';
+const f11c='Р¦РІРµС‚РѕРІС‹Рµ РєСЂРµСЃС‚С‹';
       f11s=symZero; f11b=baCut;
 procedure f11p(x,y,a,d:extended;var r,g,b:extended);
 begin
@@ -124,7 +124,7 @@ begin
  r:=1-g-b;
 end;
 
-const f12c='Многоцветик';
+const f12c='РњРЅРѕРіРѕС†РІРµС‚РёРє';
       f12s=symZero; f12b=baCut;
 procedure f12p(x,y,a,d:extended;var r,g,b:extended);
 begin
@@ -133,7 +133,7 @@ begin
  r:=1-(g+b)/2;
 end;
 
-const f13c='Синий глаз';
+const f13c='РЎРёРЅРёР№ РіР»Р°Р·';
       f13s=symZero; f13b=baCut;
 procedure f13p(x,y,a,d:extended;var r,g,b:extended);
 begin
@@ -144,7 +144,7 @@ begin
  b:=ln(y)*cos(r*pi);
 end;
 
-const f14c='Точковатость';
+const f14c='РўРѕС‡РєРѕРІР°С‚РѕСЃС‚СЊ';
       f14s=symZero; f14b=baCut;
 procedure f14p(x,y,a,d:extended;var r,g,b:extended);
 begin
@@ -153,7 +153,7 @@ begin
  b:=x/exp(y)*cos(r*pi)/ln(x);
 end;
 
-const f15c='Мишень';
+const f15c='РњРёС€РµРЅСЊ';
       f15s=symZero; f15b=baCut;
 procedure f15p(x,y,a,d:extended;var r,g,b:extended);
 begin
@@ -162,7 +162,7 @@ begin
  b:=tan(pi/2*ctan(pi/2*d));
 end;
 
-const f16c='Распятие';
+const f16c='Р Р°СЃРїСЏС‚РёРµ';
       f16s=symZero; f16b=baCut;
 procedure f16p(x,y,a,d:extended;var r,g,b:extended);
 begin
@@ -189,7 +189,7 @@ begin
  b:=cos(exp(sin(r*g)))/d;
 end;
 
-const f19c='By Sergius бабочка-1';
+const f19c='By Sergius Р±Р°Р±РѕС‡РєР°-1';
       f19s=symZero; f19b=baFrac;
 procedure f19p(x,y,a,d:extended;var r,g,b:extended);
 begin
@@ -198,7 +198,7 @@ begin
  b:=-sqrt(sin(sqr(sin(x))));
 end;
 
-const f20c='By Sergius бабочка-2';
+const f20c='By Sergius Р±Р°Р±РѕС‡РєР°-2';
       f20s=symZero; f20b=baFrac;
 procedure f20p(x,y,a,d:extended;var r,g,b:extended);
 begin
@@ -259,7 +259,7 @@ begin
  b:=d*x/sin(pow(y,y)/d)*sin(exp(sin(x/sin(x*y))));
 end;
 
-const f27c='Лохматые X-Wings';
+const f27c='Р›РѕС…РјР°С‚С‹Рµ X-Wings';
       f27s=symZero; f27b=baFrac;
 procedure f27p(x,y,a,d:extended;var r,g,b:extended);
 var i:integer;
